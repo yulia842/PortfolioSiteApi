@@ -19,3 +19,12 @@ class JokeViewSet(viewsets.ModelViewSet):
 class LocationViewSet(viewsets.ModelViewSet):
     queryset = Location.objects.all()
     serializer_class = LocationSerializer
+
+    @action(methods=['GET'], detail=False)
+    def get_location(self, request):
+        latitude = request.data.get('latitude')
+        longitude = request.data.get('longitude')
+        location = {latitude, longitude}
+        serializer = self.get_serializer(random_joke)
+        return Response(serializer.data)
+    
