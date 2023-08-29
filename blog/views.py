@@ -1,4 +1,4 @@
-from rest_framework import viewsets 
+from rest_framework import viewsets ,status
 from rest_framework.decorators import action
 from .models import Joke, Location
 from .serializers import  JokeSerializer, LocationSerializer
@@ -24,7 +24,10 @@ class LocationViewSet(viewsets.ModelViewSet):
     def get_location(self, request):
         latitude = request.data.get('latitude')
         longitude = request.data.get('longitude')
-        location = {latitude, longitude}
-        serializer = self.get_serializer(random_joke)
-        return Response(serializer.data)
-    
+        location = Location.objects.filter(latitude, longitude)
+        if location:
+            serializer = self.get_serializer(location)
+            return Response(serializer.data)
+        else:
+            return Response({"detail": "Location not found"}, status=status.HTTP_404_NOT_FOUND)
+
