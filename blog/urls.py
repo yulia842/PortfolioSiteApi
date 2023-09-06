@@ -1,11 +1,11 @@
 from rest_framework import routers
 from django.urls import path, include
-from .views import JokesViewSet , LocationsViewSet
+from .views import JokeViewSet , LocationViewSet
 
 router = routers.DefaultRouter()
 
-router.register('joke', JokesViewSet)
-router.register('Location', LocationsViewSet
+router.register('joke', JokeViewSet)
+router.register('Location', LocationViewSet
 )
 
 urlpatterns = [

@@ -21,7 +21,7 @@ class ContactViewSet(viewsets.ModelViewSet):
             subject = f'New contact from {name}'
             message = f'From: {email}\n\nMessage:\n\n{message}'
             from_email = email
-            recipient_list = ['contactForm842.com']
+            recipient_list = ['contactform842@gmail.com']
             send_mail(subject, message, from_email, recipient_list)
 
             return Response({"detail": "Contact form sent successfully."}, status=status.HTTP_201_CREATED)
