@@ -6,8 +6,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', obtain_auth_token),
     path('blog/', include('blog.urls')),
-    path('projects/', include('portfolio.urls')),
+    path('project/', include('portfolio.urls')),
     path('base/', include('base.urls')),
     path('shop/', include('shop.urls')),
-    path('users/', include('users.urls')),
+    path('user/', include('users.urls')),
 ]
