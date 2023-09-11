@@ -6,6 +6,7 @@ class Joke(models.Model):
 
 
 class Location(models.Model):
-    location = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     latitude = models.IntegerField()
+    longitude = models.IntegerField()
     expirence = models.TextField(max_length=600)
