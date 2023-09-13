@@ -61,9 +61,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:4200',
-]
+
 ROOT_URLCONF = 'portfolio_site_api.urls'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -92,7 +90,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'portfolio_site_api.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200',
+]
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
